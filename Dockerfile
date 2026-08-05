@@ -2,14 +2,14 @@
 FROM ubuntu:latest
 
 # Mantenedor da imagem (opcional)
-LABEL maintainer="DSA"
+LABEL maintainer="Prime_Flow"
 
 # Atualizar os pacotes do sistema e instalar dependências necessárias
 RUN apt-get update && \
-    apt-get install -y wget unzip curl git openssh-client iputils-ping
+    apt-get install -y wget unzip curl git openssh-client iputils-ping postgresql postgresql-contrib
 
 # Definir a versão do Terraform (ajuste conforme necessário)
-ENV TERRAFORM_VERSION=1.9.2
+ENV TERRAFORM_VERSION=1.9.5
 
 # Baixar e instalar Terraform
 RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
@@ -18,8 +18,8 @@ RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform
     rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
 # Criar a pasta /iac como um ponto de montagem para um volume
-RUN mkdir /iac
-VOLUME /iac
+RUN mkdir /IaC
+VOLUME /IaC
 
 # Criar a pasta Downloads e instalar o AWS CLI (para acessar a AWS)
 RUN mkdir Downloads && \
