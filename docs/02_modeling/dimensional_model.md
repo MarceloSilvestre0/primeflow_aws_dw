@@ -122,10 +122,6 @@ Atributos sugeridos:
 | `cdl_class`         | Classe da habilitação |
 | `years_experience`  | Anos de experiência   |
 
-O número da habilitação e a data de nascimento devem ser avaliados antes de serem expostos na camada analítica, pois são dados pessoais.
-
-Possível estratégia histórica: SCD Tipo 2 para `home_terminal`, `employment_status` e `cdl_class`.
-
 ---
 
 ### 3.5 `dim_truck`
@@ -150,10 +146,6 @@ Atributos sugeridos:
 | `status`                | Situação operacional       |
 | `home_terminal`         | Terminal de origem         |
 
-O VIN deve ser avaliado antes de ser exposto para consumo analítico.
-
-Possível estratégia histórica: SCD Tipo 2 para `status` e `home_terminal`.
-
 ---
 
 ### 3.6 `dim_trailer`
@@ -175,8 +167,6 @@ Atributos sugeridos:
 | `acquisition_date` | Data de aquisição    |
 | `status`           | Situação operacional |
 | `current_location` | Localização atual    |
-
-Possível estratégia histórica: SCD Tipo 2 para `status` e `current_location`.
 
 ---
 
@@ -217,8 +207,6 @@ Atributos sugeridos:
 | `country`      | País              |
 | `region`       | Região geográfica |
 
-A criação dessa dimensão evita repetir cidade e estado diretamente em várias tabelas fato.
-
 ---
 
 ### 3.9 `dim_load_profile`
@@ -234,8 +222,6 @@ Atributos:
 | `booking_type`     | Modalidade de contratação |
 | `load_status`      | Status da carga           |
 
-Dependendo da quantidade de combinações, esses atributos também poderiam compor uma junk dimension.
-
 ---
 
 ### 3.10 `dim_trip_status`
@@ -250,7 +236,6 @@ Atributos:
 | `trip_status`     | Status da viagem               |
 | `status_group`    | Agrupamento analítico opcional |
 
-Ela também pode ser incorporada a uma junk dimension em vez de permanecer isolada.
 
 ---
 
